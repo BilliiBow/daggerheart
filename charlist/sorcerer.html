@@ -1,1193 +1,768 @@
-<!DOCTYPE html>
-<html #daggerheart-sheet>
-  <head>
-    <title>Character Sheet for Daggerheart</title>
-    <style>
-      .bold-text {
-        font-weight: bold;
-      }
-
-      body {
-        font-family: sans-serif;
-        max-width: 960px;
-        margin: auto;
-        display: grid;
-        place-items: center;
-      }
-
-      .container {
-        display: flex;
-        gap: 20px;
-      }
-
-      table {
-        padding: 0;
-        list-style-position: inside;
-        width: 80%;
-        margin: 20px auto;
-        /* Center the table */
-        border-collapse: collapse;
-        /* Collapse borders for cleaner look */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* Subtle shadow */
-        border-radius: 8px;
-        /* Rounded corners for the table */
-        overflow: hidden;
-        /* Hide overflowing content for rounded corners to work */
-      }
-
-      th,
-      td {
-        padding: 5px 5px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-        /* Light gray bottom border for rows */
-      }
-
-      th {
-        background-color: #f2f2f2;
-        /* Light gray background for header */
-        font-weight: 600;
-        /* Slightly bolder header text */
-        color: #333;
-        /* Darker text color for header */
-      }
-
-      tr:last-child td {
-        border-bottom: none;
-      }
-
-      /* Hover effect on rows */
-      tr:hover {
-        background-color: #f5f5f5;
-      }
-
-      /* Style the table border */
-      .table-wrapper {
-        border: 2px solid #4caf50;
-        /* Green border */
-        border-radius: 10px;
-        padding: 10px;
-        background-color: white;
-      }
-
-      caption {
-        caption-side: top;
-        /* Position caption at the top */
-        text-align: center;
-        /* Align caption text to the left */
-        font-style: italic;
-        /* Italicize the caption */
-        color: #777;
-        /* Gray caption text */
-      }
-
-      .avatar {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div
-      id="myElement"
-      data-mydata='{
-      "title": "Заголовок страницы",
-      "content": [
-        { "type": "paragraph", "text": "Текст первого абзаца." },
-        { "type": "image", "src": "image.jpg", "alt": "Описание изображения" },
-        { "type": "list", "items": ["Элемент 1", "Элемент 2", "Элемент 3"] }
-      ]
-    }'
-    ></div>
-    <div class="container">
-      <div id="avatar">
-        <img id="cards-list" class="avatar" alt="Text" src="aurora.jpg" />
-      </div>
-      <div>
-        <table id="class-domain">
-          <tbody
-            style="background-color: gray; color: white; font-size: 1.25em"
-          >
-            <tr>
-              <td contenteditable="true">
-                <b>Чародей</b>
-              </td>
-            </tr>
-            <tr>
-              <td contenteditable="true" style="white-space: nowrap">
-                Таинство и Тьма
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="pronoun">
+<div>
+  <div style="display:flex;gap:20px">
+      <table id="class" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
           <thead>
-            <tr>
-              <th style="text-align: left; font-size: 0.75em"><i>Имя</i></th>
-              <th style="text-align: left; font-size: 0.75em">
-                <i>Местоимение</i>
+              <tr>
+                  <th style="text-align:center;font-size:1.5em">
+                      <p><strong>Чародей</strong></p>
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="text-align:center;font-size:1.5em">
+                      <p><strong>Таинство и Полночь</strong></p>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <table id="character" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="text-align:center;font-size:1.5em">
+                      <p><em>Изыскатели</em></p>
+                  </th>
+                  <th style="text-align:center;font-size:1.5em;white-space:nowrap">
+                      <p><em>Дракона</em></p>
+                  </th>
+                  <th style="text-align:center;font-size:1.5em">
+                      <p><em>Стихийное начало</em></p>
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="text-align:left;font-size:0.75em">
+                      <p>Сообщество</p>
+                  </td>
+                  <td style="text-align:left;font-size:0.75em">
+                      <p>Происхождение</p>
+                  </td>
+                  <td style="text-align:left;font-size:0.75em">
+                      <p>Подкласс</p>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+<div>
+  <div style="display:flex;gap:20px">
+      <table id="lvl" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th>Уровень</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="font-size:1.5em;text-align:center">1</td>
+              </tr>
+          </tbody>
+      </table>
+      <table id="dodge" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th>Уклонение</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="font-size:1.5em;text-align:center">9</td>
+              </tr>
+          </tbody>
+      </table>
+      <table id="ac" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th>Броня</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="font-size:1.5em;text-align:center">5</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+<div>
+  <table id="def" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th colspan="3">Ячейки брони</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">O</td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">O</td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">O</td>
+          </tr>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">O</td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">O</td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">O</td>
+          </tr>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;background-color:lightgray">X</td>
+              <td style="padding:5px 5px;text-align:center;background-color:lightgray">X</td>
+              <td style="padding:5px 5px;text-align:center;background-color:lightgray">X</td>
+          </tr>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;background-color:lightgray">X</td>
+              <td style="padding:5px 5px;text-align:center;background-color:lightgray">X</td>
+              <td style="padding:5px 5px;text-align:center;background-color:lightgray">X</td>
+          </tr>
+      </tbody>
+  </table>
+  <table id="traits" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="caption-side:top;text-align:center;font-style:italic" colspan="6"><em>Характеристики</em></th>
+          </tr>
+          <tr>
+              <th style="white-space:nowrap">
+                  <p>Проворность</p>
               </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-size: 1.5em" contenteditable="true">Аврора</td>
-              <td contenteditable="true">Она</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <table id="origin-subclass">
-          <thead>
-            <tr>
-              <th style="text-align: left; font-size: 0.75em">
-                <i>Происхождение</i>
+              <th style="white-space:nowrap">
+                  <p>Сила</p>
               </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="white-space: nowrap" contenteditable="true">
-                Историческое сообщество, Дракона
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align: left; font-size: 0.75em">
-                <i>Подкласс</i>
+              <th style="white-space:nowrap">
+                  <p>Искусность</p>
               </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="white-space: nowrap" contenteditable="true">
-                Первозданный исток
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <table id="level" style="max-width: 200px; width: 100%">
-          <thead>
-            <tr>
-              <th>Уровень</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-size: 5em" contenteditable="true">1</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div>
-      <div class="container">
-        <table id="evasion" style="max-width: 200px; width: 100%">
-          <thead>
-            <tr>
-              <th>Уклонение</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-size: 5em" contenteditable="true">9</td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="armour" style="max-width: 200px; width: 100%">
-          <thead>
-            <tr>
-              <th>Броня</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-size: 5em" contenteditable="true">3</td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="armour-cells">
-          <tbody>
-            <caption>
-              Ячейки брони
-            </caption>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-            </tr>
-            <tr>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="special">
-          <tbody>
-            <caption>
-              Характеристики
-            </caption>
-            <tr>
-              <td
-                style="
-                  white-space: nowrap;
-                  background-color: gray;
-                  color: white;
-                "
-              >
-                Проворность<input type="checkbox" />
-              </td>
-              <td
-                style="
-                  white-space: nowrap;
-                  background-color: gray;
-                  color: white;
-                "
-              >
-                Сила<input type="checkbox" />
-              </td>
-              <td
-                style="
-                  white-space: nowrap;
-                  background-color: gray;
-                  color: white;
-                "
-              >
-                Искусность<input type="checkbox" />
-              </td>
-              <td
-                style="
-                  white-space: nowrap;
-                  background-color: gray;
-                  color: white;
-                "
-              >
-                Интуиция<input type="checkbox" />
-              </td>
-              <td
-                style="
-                  white-space: nowrap;
-                  background-color: gray;
-                  color: white;
-                "
-              >
-                Воздействие<input type="checkbox" />
-              </td>
-              <td
-                style="
-                  white-space: nowrap;
-                  background-color: gray;
-                  color: white;
-                "
-              >
-                Эрудиция<input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <td contenteditable="true">0</td>
-              <td contenteditable="true">0</td>
-              <td contenteditable="true">0</td>
-              <td contenteditable="true">0</td>
-              <td contenteditable="true">0</td>
-              <td contenteditable="true">0</td>
-            </tr>
-            <tr>
-              <td>Бежать Прыгать Маневрировать</td>
-              <td>Поднимать Ломать Бороться</td>
-              <td>Управлять Скрываться Мастерить</td>
-              <td>Замечать Чувствовать Ориентироваться</td>
-              <td>Очаровывать Исполнять Обманывать</td>
-              <td>Вспоминать Изучать Понимать</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="container">
-      <div>
-        <table id="hp-stress">
-          <thead>
-            <th colspan="5">ЕДИНИЦЫ УРОНА И СТРЕСС</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td
-                colspan="5"
-                style="
-                  caption-side: top;
-                  text-align: center;
-                  font-style: italic;
-                  color: #777;
-                  font-size: 0.75em;
-                "
-                contenteditable="true"
-              >
-                Начни порог Ощутимомого Урона с 6, а Тяжелого - с 12
-              </td>
-            </tr>
-            <tr>
-              <td style="background-color: #f2f2f2">Легкий урон</td>
-              <td contenteditable="true">7</td>
-              <td style="background-color: #f2f2f2">Ощутимый урон</td>
-              <td contenteditable="true">13</td>
-              <td style="background-color: #f2f2f2">Тяжелый урон</td>
-            </tr>
-            <tr>
-              <td>Отметь 1 ЕУ</td>
-              <td></td>
-              <td>Отметь 2 ЕУ</td>
-              <td></td>
-              <td>Отметь 3 ЕУ</td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="hp-sress-cells">
-          <tbody>
-            <tr>
-              <td>ЕУ</td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-            </tr>
-            <tr>
-              <td>СТРЕСС</td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td style="background-color: lightgray">
-                <input type="checkbox" />
-              </td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="hope">
-          <thead>
-            <tr>
-              <th class="bold-text" colspan="6">НАДЕЖДА</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td
-                colspan="6"
-                style="
-                  caption-side: top;
-                  text-align: center;
-                  font-style: italic;
-                  color: #777;
-                  font-size: 0.75em;
-                "
-              >
-                Потрать надежду и примени опыт или помоги союзнику
-              </td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-            </tr>
-            <tr>
-              <td colspan="6">
-                <span class="bold-text" contenteditable="true"
-                  >Надежда чародея:</span
-                >
-                Потрать 3 Надежды после броска Атрибута магии, чтобы удвоить
-                результат своей кости Надежды
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="expirience">
-          <thead>
-            <tr>
-              <th class="bold-text" colspan="2">ОПЫТ</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td contenteditable="true">Путешественник</td>
-              <td contenteditable="true">+2</td>
-            </tr>
-            <tr>
-              <td contenteditable="true">Гурман</td>
-              <td contenteditable="true">+2</td>
-            </tr>
-            <tr>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-            </tr>
-            <tr>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-            </tr>
-            <tr>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="gold">
-          <thead>
-            <tr>
-              <th class="bold-text" colspan="19">ЗОЛОТО</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td style="border-right: 1px solid black; padding: 8px">
-                <input type="checkbox" />
-              </td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td style="border-right: 1px solid black; padding: 8px">
-                <input type="checkbox" />
-              </td>
-              <td><input type="checkbox" /></td>
-            </tr>
-            <tr>
-              <td
-                colspan="9"
-                style="border-right: 1px solid black; padding: 8px"
-              >
-                Пригорошни
-              </td>
-              <td
-                colspan="9"
-                style="border-right: 1px solid black; padding: 8px"
-              >
-                Сумки
-              </td>
-              <td>Сундук</td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="class-feuters">
-          <thead>
-            <tr>
-              <th class="bold-text">СВОЙСТВО КЛАССА</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: left" contenteditable="true">
-                <p style="margin-bottom: 1em">
-                  <span class="bold-text">Ощущение магии</span>
-                </p>
-                <p>
-                  Ты знаешь, присутствует ли магия в людях и предметах рядом с
-                  тобой.
-                </p>
-                <p style="margin-bottom: 1em">
-                  <span class="bold-text">Малая иллюзия</span>
-                </p>
-                <p>
-                  Сделай
-                  <span class="bold-text">бросок Атрибута магии(10)</span>. При
-                  успехе ты создаешь небольшую зрительную иллюзию размером не
-                  больше себя в пределах Близко. Иллюзия выглядит убедительно
-                  для тех, кто находится Далеко или на большем расстоянии
-                </p>
-                <p style="margin-bottom: 1em">
-                  <span class="bold-text">Призыв чистой магии</span>
-                </p>
-                <p>
-                  Раз за долгий отдых ты можешь убрать карту Домена из руки и
-                  выбрать один эффект:
-                </p>
-                <p>- получи количество Надежды, равное уровню карты;</p>
-                <p>
-                  - увеличь урон от заклинания на удвоенный уровень карты,
-                  дополнительный урон будет магическим;
-                </p>
-                <p>
-                  Во время ближайшего короткого отдыха эту карту можно вернуть в
-                  руку, не платя Цену возврата.
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <table id="mastery">
-          <thead>
-            <tr>
-              <th colspan="6">Мастерство</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-              <td><input type="checkbox" /></td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="weapon">
-          <thead>
-            <tr>
-              <th colspan="2">ИСПОЛЬЗУЕМОЕ ОРУЖИЕ</th>
-              <th colspan="1">Рук: 2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td colspan="3">ОСНОВНОЕ</td>
-            </tr>
-            <tr>
-              <td style="white-space: nowrap" contenteditable="true">
-                Двойной жезл
-              </td>
-              <td style="white-space: nowrap" contenteditable="true">
-                Интуиция, Далеко
-              </td>
-              <td style="white-space: nowrap" contenteditable="true">к6+3</td>
-            </tr>
-            <tr>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                НАЗВАНИЕ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                АТРИБУТ И ДАЛЬНОСТЬ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                КОСТЬ УРОНА
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3" contenteditable="true">
-                Никаких особых свойств нет
-              </td>
-            </tr>
-            <tr>
-              <td
-                colspan="3"
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                СВОЙСТВО
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3">ДОПОЛНИТЕЛЬНОЕ</td>
-            </tr>
-            <tr>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-            </tr>
-            <tr>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                НАЗВАНИЕ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                АТРИБУТ И ДАЛЬНОСТЬ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                КОСТЬ УРОНА
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3" contenteditable="true">
-                Никаких особых свойств нет
-              </td>
-            </tr>
-            <tr>
-              <td
-                colspan="3"
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                СВОЙСТВО
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="inventory">
-          <thead>
-            <tr>
-              <th>ИНВЕНТАРЬ</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td contenteditable="true">Малое зелье выносливости</td>
-            </tr>
-            <tr>
-              <td contenteditable="true">
-                Семейная реликвия(изделие из кости рыбы)
-              </td>
-            </tr>
-            <tr>
-              <td contenteditable="true">факел</td>
-            </tr>
-            <tr>
-              <td contenteditable="true">50 футов веревки</td>
-            </tr>
-            <tr>
-              <td contenteditable="true">припасы</td>
-            </tr>
-          </tbody>
-        </table>
-        <table id="weapon-inventory">
-          <thead>
-            <tr>
-              <th colspan="3">ОРУЖИЕ В ИНВЕНТАРЕ</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-            </tr>
-            <tr>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                НАЗВАНИЕ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                АТРИБУТ И ДАЛЬНОСТЬ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                КОСТЬ УРОНА
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3" contenteditable="true">
-                Никаких особых свойств нет
-              </td>
-            </tr>
-            <tr>
-              <td
-                colspan="3"
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                СВОЙСТВО
-              </td>
-            </tr>
-            <tr>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-              <td style="white-space: nowrap" contenteditable="true"></td>
-            </tr>
-            <tr>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                НАЗВАНИЕ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                АТРИБУТ И ДАЛЬНОСТЬ
-              </td>
-              <td
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                КОСТЬ УРОНА
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3" contenteditable="true">
-                Никаких особых свойств нет
-              </td>
-            </tr>
-            <tr>
-              <td
-                colspan="3"
-                style="text-align: left; font-size: 0.5em; white-space: nowrap"
-              >
-                СВОЙСТВО
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div style="page-break-after: always"></div>
-    <div>
-      <img id="cards-list" alt="Text" src="card_list.png" />
-    </div>
-    <div style="page-break-after: always"></div>
-    <div>
-      <table id="manual">
-        <thead>
-          <tr>
-            <th
-              contenteditable="true"
-              style="background-color: gray; color: white; font-size: 1.25em"
-            >
-              <b>ЧАРОДЕЙ</b>
-            </th>
-            <th style="background-color: gray; color: white; font-size: 1.25em">
-              Руководство
-            </th>
+              <th style="white-space:nowrap">
+                  <p>Интуиция</p>
+              </th>
+              <th style="white-space:nowrap">
+                  <p>Эффектность</p>
+              </th>
+              <th style="white-space:nowrap">
+                  <p>Эрудиция</p>
+              </th>
           </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
           <tr>
-            <td colspan="2" contenteditable="true">
-              Чародеи созданны и сформированы волей магии, и они знают, как
-              добиться своего с помощью данных им сил.
-            </td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd;font-weight:bold"><strong>0</strong></td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd;font-weight:bold"><strong>-1</strong></td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd;font-weight:bold"><strong>+1</strong></td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd;font-weight:bold"><strong>+2</strong></td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd;font-weight:bold"><strong>+1</strong></td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd;font-weight:bold"><strong>-1</strong></td>
           </tr>
-        </tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Бежать<br><br>Прыгать <br><br>Маневрировать</p>
+              </td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Поднимать<br><br>Ломать<br><br>Бороться</p>
+              </td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Управлять<br><br>Скрываться<br><br>Мастерить</p>
+              </td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Замечать <br><br>Чувствовать<br><br>Ориентироваться</p>
+              </td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Очаровывать <br><br>Исполнять<br><br>Обманывать</p>
+              </td>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Вспоминать <br><br>Изучать<br><br>Понимать</p>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div style="display:flex;gap:20px">
+  <div>
+      <table id="hp_v" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th colspan="5">ЕДИНИЦЫ УРОНА И СТРЕСС</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="caption-side:top;text-align:center;font-style:italic;color:#777;font-size:0.75em" colspan="5"><em>Начни порог Ощутимого Урона с 6, а Тяжелого - с 12</em></td>
+              </tr>
+              <tr>
+                  <td style="background-color:#f2f2f2">Легкий урон</td>
+                  <td>6</td>
+                  <td style="background-color:#f2f2f2">Ощутимый урон</td>
+                  <td>12</td>
+                  <td style="background-color:#f2f2f2">Тяжелый урон</td>
+              </tr>
+              <tr>
+                  <td>Отметь 1 ЕУ</td>
+                  <td></td>
+                  <td>Отметь 2 ЕУ</td>
+                  <td></td>
+                  <td>Отметь 3 ЕУ</td>
+              </tr>
+          </tbody>
       </table>
-    </div>
-    <div class="container">
-      <table id="manual-stats">
-        <thead>
-          <tr>
-            <th>SUGGESTED</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td contenteditable="true">
-              TRAITS: 0 Agility, -1 Strength, +1 Finesse, +2 Instinct, +1
-              Presence, 0 Knowledge
-            </td>
-          </tr>
-          <tr>
-            <td>
-              PRIMARY WEAPON: Dualstaff - Instinct Far - d6+3 (Mag) - Two-Handed
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ARMOR: Gambeson Armor - Base Score 3 Feature: Flexible (+1 to
-              Evasion)
-            </td>
-          </tr>
-        </tbody>
+      <table id="hp" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th>
+                      <p>ЕУ</p>
+                  </th>
+                  <th>
+                      <p>X</p>
+                  </th>
+                  <th>
+                      <p>X</p>
+                  </th>
+                  <th>
+                      <p>X</p>
+                  </th>
+                  <th>
+                      <p>X</p>
+                  </th>
+                  <th>
+                      <p>X</p>
+                  </th>
+                  <th>
+                      <p>X</p>
+                  </th>
+                  <th style="background-color:white;color:#000000">
+                      <p>O</p>
+                  </th>
+                  <th style="background-color:white;color:#000000">
+                      <p>O</p>
+                  </th>
+                  <th style="background-color:white;color:#000000">
+                      <p>O</p>
+                  </th>
+                  <th style="background-color:white;color:#000000">
+                      <p>O</p>
+                  </th>
+                  <th style="background-color:white;color:#000000">
+                      <p>O</p>
+                  </th>
+                  <th style="background-color:white;color:#000000">
+                      <p>O</p>
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="white-space:nowrap">
+                      <p>СТРЕСС</p>
+                  </td>
+                  <td style="background-color:lightgray">
+                      <p>O</p>
+                  </td>
+                  <td style="background-color:lightgray">
+                      <p>O</p>
+                  </td>
+                  <td style="background-color:lightgray">
+                      <p>O</p>
+                  </td>
+                  <td style="background-color:lightgray">
+                      <p>O</p>
+                  </td>
+                  <td style="background-color:lightgray">
+                      <p>O</p>
+                  </td>
+                  <td style="background-color:lightgray">
+                      <p>O</p>
+                  </td>
+                  <td>
+                      <p>O</p>
+                  </td>
+                  <td>
+                      <p>O</p>
+                  </td>
+                  <td>
+                      <p>O</p>
+                  </td>
+                  <td>
+                      <p>O</p>
+                  </td>
+                  <td>
+                      <p>O</p>
+                  </td>
+                  <td>
+                      <p>O</p>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-      <table id="manual-inventory">
-        <thead>
-          <tr>
-            <th>ИНВЕНТАРЬ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td contenteditable="true">
-              TAKE: a torch, 50ft of rope, basic supplies, and a handful of
-              gold.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              THEN CHOOSE BETWEEN: a minor health potion OR a minor stamina
-              potion.
-            </td>
-          </tr>
-          <tr>
-            <td>AND EITHER: a whispering orb OR a family heirloom</td>
-          </tr>
-        </tbody>
+      <table id="hope" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold" colspan="6"><strong>НАДЕЖДА</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="caption-side:top;text-align:center;font-style:italic;color:#777;font-size:0.75em" colspan="6"><em>Потрать надежду и примени опыт или помоги союзнику</em></td>
+              </tr>
+              <tr>
+                  <td>X</td>
+                  <td>X</td>
+                  <td>O</td>
+                  <td>O</td>
+                  <td>O</td>
+                  <td>O</td>
+              </tr>
+              <tr>
+                  <td colspan="6"><span style="font-weight:bold"><strong>Надежда чародея:</strong></span> Потратьте три Надежды после Броска Заклинателя, чтобы удвоить результат вашей кости Надежды.</td>
+              </tr>
+          </tbody>
       </table>
-      <table id="manual-look">
-        <thead>
-          <tr>
-            <th>ОПИСАНИЕ ПЕРСОНАЖА</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Choose one (or more) from each line, or make your own</td>
-          </tr>
-          <tr>
-            <td>
-              Clothes that are: ornate, flamboyant, always moving,
-              inconspicuous, layered, tight
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Eyes like: fire, lilacs, endless ocean, night, ivy, seafoam,
-              earth, winter, carnations
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Body that’s: lanky, tall, curvy, rotund, short, thin, toned,
-              stocky, broad, carved, tiny
-            </td>
-          </tr>
-          <tr>
-            <td>
-              The color of: obsidian, rose, falling snow, fine sand, ashes,
-              clover, sapphire, wisteria
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Attitude like: a celebrity, a commander, a politician, a
-              prankster, a wolf in sheep’s clothing
-            </td>
-          </tr>
-        </tbody>
+      <table id="class-description" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold"><strong>СВОЙСТВО КЛАССА</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="text-align:left">
+                      <p><strong>Колдовское Чутье</strong></p>
+                      <p>Вы можете ощущать присутствие магических существ и предметов, когда находитесь близко к ним.</p>
+                      <p><strong>Малая Иллюзия</strong></p>
+                      <p>Совершите Бросок Заклинателя (10). При успехе вы создаете малую визуальную иллюзию размером не больше себя на Близком расстоянии. Эта иллюзия выглядит убедительно для всех, кто находится на Далеком расстоянии или дальше.</p>
+                      <p><strong>Направление Сырой Энергии</strong></p>
+                      <p>Один раз за продолжительный отдых вы можете поместить карту Домена из своего инвентаря в хранилище и выбрать:</p>
+                      <p><strong>Получить Надежду, равную уровню карты.</strong></p>
+                      <p>Усилить заклинание, наносящее урон, нанеся дополнительный магический урон, равный удвоенному уровню карты.</p>
+                      <p>Во время следующего короткого отдыха вы можете вернуть эту карту в руку, не оплачивая стоимость ее призыва.</p>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-    </div>
-    <div class="container">
-      <table id="manual-background">
-        <thead>
-          <tr>
-            <th>Вопросы о предыстории</th>
-          </tr>
-          <tr>
-            <th>Ответь на вопросы или придумай свои:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              What did you do that made the people in your community wary of
-              you?
-            </td>
-          </tr>
-          <tr>
-            <td contenteditable="true"></td>
-          </tr>
-          <tr>
-            <td>
-              What mentor taught you to control your untamed magic, and why are
-              they no longer able to guide you?
-            </td>
-          </tr>
-          <tr>
-            <td contenteditable="true"></td>
-          </tr>
-          <tr>
-            <td>
-              You have a deep fear you hide from everyone. What is it, and why
-              does it scare you?
-            </td>
-          </tr>
-          <tr>
-            <td contenteditable="true"></td>
-          </tr>
-        </tbody>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold"><strong>СВОЙСТВО ПОДКЛАССА</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="text-align:left">
+                      <p style="margin-bottom: 1em"><span style="font-weight:bold"><strong>Стихийное начало</strong></span></p>
+                      <p>Заклинатель: Интуиция</p>
+                      <p>Ваше стихийное начало позволяет вам манипулировать и придавать форму определенному виду стихий.</p>
+                      <p>Выберите один из них:</p>
+                      <p><strong>Вода</strong> · Огонь · Воздух · Молния · Земля</p>
+                      <p>Вы можете направлять этот элемент для создания уникальных, безвредных эффектов. Помимо этого, вы можете потратить Надежду и описать, как ваш контроль над этой стихией помогает в броске действия, который вы собираетесь сделать, а затем добавить либо +2 к броску, либо +3 к урону.</p>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-      <table id="lines">
-        <thead>
-          <tr>
-            <th>Взаимосвязи</th>
-          </tr>
-          <tr>
-            <th>После того как расскажешь о себе, задай вопросы другим</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Why do you trust me so deeply?</td>
-          </tr>
-          <tr>
-            <td contenteditable="true"></td>
-          </tr>
-          <tr>
-            <td>What did I do that makes you cautious around me?</td>
-          </tr>
-          <tr>
-            <td contenteditable="true"></td>
-          </tr>
-          <tr>
-            <td>Why do we keep our shared past a secret?</td>
-          </tr>
-          <tr>
-            <td contenteditable="true"></td>
-          </tr>
-        </tbody>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold"><strong>ДОМЕНЫ</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="text-align:left">
+                      <p style="margin-bottom: 1em"><span style="font-weight:bold"><strong>Домен Таинства. Рунный Оберег</strong></span></p>
+                      <p>У вас есть очень ценная для вас безделушка, которая может быть пропитана охранной магией и служить оберегом для вас или вашего союзника. Опишите, что это такое и почему это так важно для вас. Когда носитель оберега получает урон, они могут потратить Надежду, чтобы уменьшить этот урон на 1d8. Если на кости оберега выпадет 8, то его сила временно прекратится после того, как он снизит урон в этот ход. Его можно бесплатно перезарядить во время следующего отдыха.</p>
+                      <p><span style="font-weight:700"><strong>Домен Полуночи. Дождь Клинков</strong></span></p>
+                      <p>Потратьте Надежду, чтобы призвать метательные клинки, которые поразят всех врагов на Очень Близкой дистанции к вам. Совершите Бросок Заклинателя, после чего все цели, по которым вы добились успеха получат d8 + 2 магического урона, используя ваше Мастерство. Если цель, по которой вы попали, в данный момент Уязвима, то она получает дополнительно 1d8 магического урона.</p>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-    </div>
-    <div class="container">
-      <table id="lvl-up-2">
-        <thead>
-          <tr>
-            <th>Уровни 2-4</th>
-          </tr>
-          <tr>
-            <th>
-              На 2 уровне получи еще 1 Опыт и подними Мастерство на +1 Choose
-              two available options from the list below and mark them.
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Increase two unmarked Character Traits by +1 and mark them.</td>
-          </tr>
-          <tr>
-            <td>Permanently add one Hit Point Slot.</td>
-          </tr>
-          <tr>
-            <td>Permanently add one Stress Slot.</td>
-          </tr>
-          <tr>
-            <td>Increase two Experiences by +1.</td>
-          </tr>
-          <tr>
-            <td>Permanently add one Armor Slot.</td>
-          </tr>
-          <tr>
-            <td>Add +1 to your Evasion.</td>
-          </tr>
-          <tr>
-            <td>
-              Choose an additional domain card at your level or lower (up to
-              Level 4).
-            </td>
-          </tr>
-          <tr>
-            <td>Increase your Major Damage Threshold by +1.</td>
-          </tr>
-          <tr>
-            <td>Increase your Severe Damage Threshold by +1.</td>
-          </tr>
-          <tr>
-            <td contenteditable="true">
-              Then increase your Severe Damage Threshold by +2 and choose a new
-              Domain Deck card at your Level or lower.
-            </td>
-          </tr>
-        </tbody>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold"><strong>Способность вида Дракона</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="text-align:left">
+                      <p style="margin-bottom: 1em"><strong>Дракона напоминают бескрылых драконов в гуманоидной форме, обладающих мощным элементальным дыханием.</strong></p>
+                      <p><strong>Чешуя:</strong> Ваша естественная чешуя действует как защита, увеличивая ваш Показатель Защиты на +1.</p>
+                      <p><strong>Элементальное Дыхание: </strong>Выберите стихию для своего дыхания (<strong>лед</strong>, огонь, электричество и т.д.). Вы можете использовать это дыхание против одной или нескольких целей находящихся на Очень Близком расстоянии, считая его как оружие Инстинкта, наносящее d8 Магического урона, применяя ваше Мастерство.<br></p>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-      <table id="lvl-up-5">
-        <thead>
-          <tr>
-            <th>Уровни 5-7</th>
-          </tr>
-          <tr>
-            <th>
-              At Level 5, take an additional Experience and clear all marks on
-              Character Traits. Then increase your Profi ciency by +1.
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              Choose two from the list below or any unmarked from the previous
-              tier and mark them.
-            </td>
-          </tr>
-          <tr>
-            <td>Increase two unmarked Character Traits by +1 and mark them.</td>
-          </tr>
-          <tr>
-            <td>Permanently add one Hit Point Slot.</td>
-          </tr>
-          <tr>
-            <td>Permanently add one Stress Slot.</td>
-          </tr>
-          <tr>
-            <td>Increase two Experiences by +1.</td>
-          </tr>
-          <tr>
-            <td>
-              Choose an additional domain card at your level or lower (up to
-              Level 7).
-            </td>
-          </tr>
-          <tr>
-            <td>Permanently add two Armor Slots or add +1 to your Evasion.</td>
-          </tr>
-          <tr>
-            <td>Increase your Major Damage Threshold by +1.</td>
-          </tr>
-          <tr>
-            <td>Increase your Severe Damage Threshold by +2.</td>
-          </tr>
-          <tr>
-            <td>
-              Take an upgraded subclass card. Then cross out the multiclass
-              option for this tier. Increase your Proficiency by +1.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Multiclass: Choose an additional class for your character, then
-              cross out an unused “Take an upgraded subclass card” and the other
-              multiclass option on this sheet.
-            </td>
-          </tr>
-          <tr>
-            <td contenteditable="true">
-              Increase your Damage Thresholds: Major by +1 and Severe by +3.
-              Then choose a new Domain Deck card at your Level or lower.
-            </td>
-          </tr>
-        </tbody>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold"><strong>Способность сообщества Изыскателей</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="text-align:left">
+                      <p><strong>Начитанность: </strong>Вы имеете преимущество при любых бросках, касающихся истории, культуры или политики, связанных с выдающимся человеком или местом.</p>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-      <table id="lvl-up-8">
-        <thead>
-          <tr>
-            <th>Уровни 8-10</th>
-          </tr>
-          <tr>
-            <th>
-              At Level 8, take an additional Experience and clear all marks on
-              Character Traits. Then increase your Profi ciency by +1. Choose
-              two from the list below or any unmarked from the previous tiers
-              and mark them.
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Increase two unmarked Character Traits by +1 and mark them.</td>
-          </tr>
-          <tr>
-            <td>Permanently add one Hit Point Slot.</td>
-          </tr>
-          <tr>
-            <td>Permanently add one Stress Slot.</td>
-          </tr>
-          <tr>
-            <td>Increase two Experiences by +1.</td>
-          </tr>
-          <tr>
-            <td>Choose an additional domain card at your level or lower.</td>
-          </tr>
-          <tr>
-            <td>Permanently add two Armor Slots or add +1 to your Evasion.</td>
-          </tr>
-          <tr>
-            <td>Increase your Major Damage Threshold by +1.</td>
-          </tr>
-          <tr>
-            <td>Increase your Severe Damage Threshold by +2.</td>
-          </tr>
-          <tr>
-            <td>
-              Take an upgraded subclass card. Then cross out the multiclass
-              option for this tier.
-            </td>
-          </tr>
-          <tr>
-            <td>Increase your Proficiency by +1.</td>
-          </tr>
-          <tr>
-            <td>
-              Multiclass: Choose an additional class for your character, then
-              cross out an unused “Take an upgraded subclass card” and the other
-              multiclass option on this sheet.
-            </td>
-          </tr>
-          <tr>
-            <td enteditable="true">
-              Increase your Damage Thresholds: Major by +1 and Severe by +3.
-              Then choose a new Domain Deck card at your Level or lower.
-            </td>
-          </tr>
-        </tbody>
+  </div>
+  <div>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th colspan="6">Мастерство</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>X</td>
+                  <td>O</td>
+                  <td>O</td>
+                  <td>O</td>
+                  <td>O</td>
+                  <td>O</td>
+              </tr>
+          </tbody>
       </table>
-    </div>
-  </body>
-</html>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th colspan="2">ИСПОЛЬЗУЕМОЕ ОРУЖИЕ</th>
+                  <th>Рук: 2</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td colspan="3">ОСНОВНОЕ</td>
+              </tr>
+              <tr>
+                  <td style="white-space:nowrap"><span style="font-family: Roboto">Двойной Посох</span></td>
+                  <td style="white-space:nowrap">Интуиция, Далеко</td>
+                  <td style="white-space:nowrap">к6+3 (маг)</td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">НАЗВАНИЕ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">АТРИБУТ И ДАЛЬНОСТЬ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">КОСТЬ УРОНА</td>
+              </tr>
+              <tr>
+                  <td colspan="3">Двуручный</td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap" colspan="3">СВОЙСТВО</td>
+              </tr>
+              <tr>
+                  <td colspan="3">ДОПОЛНИТЕЛЬНОЕ</td>
+              </tr>
+              <tr>
+                  <td style="white-space:nowrap"> </td>
+                  <td style="white-space:nowrap"> </td>
+                  <td style="white-space:nowrap"> </td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">НАЗВАНИЕ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">АТРИБУТ И ДАЛЬНОСТЬ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">КОСТЬ УРОНА</td>
+              </tr>
+              <tr>
+                  <td colspan="3"></td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap" colspan="3">СВОЙСТВО</td>
+              </tr>
+          </tbody>
+      </table>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th>ИНВЕНТАРЬ</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>малое зелье здоровья</td>
+              </tr>
+              <tr>
+                  <td>Изделие из кости рыбы</td>
+              </tr>
+              <tr>
+                  <td>факел</td>
+              </tr>
+              <tr>
+                  <td>50 футов веревки</td>
+              </tr>
+              <tr>
+                  <td>припасы</td>
+              </tr>
+              <tr>
+                  <td>горсть золота</td>
+              </tr>
+              <tr>
+                  <td>Кожаный доспех - исходное значение 4</td>
+              </tr>
+              <tr>
+                  <td>-</td>
+              </tr>
+              <tr>
+                  <td>-</td>
+              </tr>
+              <tr>
+                  <td>-</td>
+              </tr>
+          </tbody>
+      </table>
+      <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th colspan="3">ОРУЖИЕ В ИНВЕНТАРЕ</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td style="white-space:nowrap"><span class="mw-page-title-main" style="box-sizing:inherit;border:0px;margin:0px;padding:0px;vertical-align:initial"><span style="font-family: rubik, helvetica, arial, sans-serif">Кинжал Апселя</span></span></td>
+                  <td style="white-space:nowrap">Физ, Вплотную</td>
+                  <td style="white-space:nowrap">к8+1</td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">НАЗВАНИЕ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">АТРИБУТ И ДАЛЬНОСТЬ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">КОСТЬ УРОНА</td>
+              </tr>
+              <tr>
+                  <td colspan="3">Этот кинжал был создан Апселем Скримшандером , жителем Истхейвена. Кинжал имеет острое лезвие, а рукоять сделана из искусно вырезанной кости форели-болванчика. Дает +1 к броскам на попадание.</td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap" colspan="3">СВОЙСТВО</td>
+              </tr>
+              <tr>
+                  <td style="white-space:nowrap">r</td>
+                  <td style="white-space:nowrap">r</td>
+                  <td style="white-space:nowrap">r</td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">НАЗВАНИЕ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">АТРИБУТ И ДАЛЬНОСТЬ</td>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap">КОСТЬ УРОНА</td>
+              </tr>
+              <tr>
+                  <td colspan="3">Никаких особых свойств нет</td>
+              </tr>
+              <tr>
+                  <td style="text-align:left;font-size:0.5em;white-space:nowrap" colspan="3">СВОЙСТВО</td>
+              </tr>
+          </tbody>
+      </table>
+      <table id="gold" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold" colspan="19"><strong>ЗОЛОТО</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>x</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td style="border-right:1px solid black;padding:8px">o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td>o</td>
+                  <td style="border-right:1px solid black;padding:8px">o</td>
+                  <td>o</td>
+              </tr>
+              <tr>
+                  <td style="border-right:1px solid black;padding:8px;white-space:nowrap" colspan="9">Пригорошни</td>
+                  <td style="border-right:1px solid black;padding:8px;white-space:nowrap" colspan="9">Сумки</td>
+                  <td style="white-space:nowrap">Сундук</td>
+              </tr>
+          </tbody>
+      </table>
+      <table id="expirience" style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+          <thead>
+              <tr>
+                  <th style="font-weight:bold" colspan="2"><strong>ОПЫТ</strong></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Путешественник</td>
+                  <td>+2</td>
+              </tr>
+              <tr>
+                  <td>Диссектолог</td>
+                  <td>+2</td>
+              </tr>
+              <tr>
+                  <td>
+                      <p><br></p>
+                  </td>
+                  <td>
+                      <p><br></p>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <p><br></p>
+                  </td>
+                  <td>
+                      <p><br></p>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <p><br></p>
+                  </td>
+                  <td>
+                      <p><br></p>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+<div style="page-break-after:always">
+  <p></p>
+</div>
+<div>
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Чародей</p>
+              </th>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Руководство</p>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td colspan="2">
+                  <p><span style="font-family: Roboto">Не все обладатели врожденной магии решают оттачивать свое мастерство, но те, кто решается, могут стать могущественными чародеями. Дары этих обладателей передаются по наследству, хотя не все семьи знают об их уникальных способностях, и еще реже предпочитают их практиковать. Способности чародеев варьируются от элементальных до иллюзорных и даже шире, и многие представители этого класса объединяются в коллективы на основе их талантов. Процесс превращения в грозного чародея заключается не в обретении силы, а в обучении контролю и оттачиванию той силы, которой уже обладаешь. Магия, заключенная в заблуждающемся или необразованном чародее - опасная сила.</span></p>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div style="display:flex;gap:20px">
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>ИНВЕНТАРЬ</p>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>Изделие из кости рыбы</p>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p>ОПИСАНИЕ ПЕРСОНАЖА</p>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p></p>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div style="display:flex;gap:20px">
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p><strong>Вопросы о предыстории</strong><br><br>Ответь на вопросы или придумай свои:</p>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p><strong>Что вы сделали такого, что люди в вашем сообществе стали относиться к вам с опаской?</strong></p>
+                  <p>-</p>
+                  <p><strong>Какой наставник научил вас контролировать вашу необузданную магию и почему они больше не могут вас направлять?</strong></p>
+                  <p>-</p>
+                  <p><strong>У вас есть глубокий страх, который вы скрываете от всех. Что это и почему это вас так пугает?</strong></p>
+                  <p>-</p>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p><strong>Взаимосвязи</strong><br><br>После того как расскажешь о себе, задай вопросы другим:</p>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">
+                  <p><strong>Почему ты так сильно мне доверяешь?</strong></p>
+                  <p>-</p>
+                  <p><strong>Что я сделал(а) такого, что побуждает тебя быть осторожным рядом со мной?</strong></p>
+                  <p>-</p>
+                  <p><strong>Почему мы держим в секрете наше совместное прошлое?</strong></p>
+                  <p>-</p>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div style="display:flex;gap:20px">
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd"><strong>Уровни 2-4</strong></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">На 2 уровне получи еще 1 Опыт и подними Мастерство на +1</td>
+          </tr>
+      </tbody>
+  </table>
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd"><strong>Уровни 5-7</strong></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">На 2 уровне получи еще 1 Опыт и подними Мастерство на +1</td>
+          </tr>
+      </tbody>
+  </table>
+  <table style="padding:0;list-style-position:inside;width:80%;margin:20px auto;border-collapse:collapse;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);border-radius:8px;overflow:hidden;text-align:center">
+      <thead>
+          <tr>
+              <th style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd"><strong>Уровни 8-10</strong></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="padding:5px 5px;text-align:center;border-bottom:1px solid #ddd">На 2 уровне получи еще 1 Опыт и подними Мастерство на +1</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

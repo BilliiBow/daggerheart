@@ -1,26 +1,20 @@
 {
-  "id": "my-dice-module",
+  "id": "daggerheart-duality-dice",
+  "title": "Daggerheart Duality dice",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
   },
-  "name": "my-dice-module",
-  "title": "My dice Name",
-  "version": "1.0.0",
-  "minimumCoreVersion": "12",
-  "scripts": ["scripts/dice-roller.js"],
-  "styles": [],
-  "templates": ["templates/dice-roller-prompt.html"],
-  "packs": [],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "author": "Your Name",
-  "url": "",
-  "manifest": "",
-  "download": ""
+  "relationships": {
+    "requires": [
+      {
+        "id": "dice-so-nice",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
+  },
+  "description": "This module fully implements the unique Duality Dice mechanic from the Daggerheart TTRPG within Foundry VTT.\nIt streamlines gameplay by automating dice rolls, calculations, and the application of special rules.\nFeatures:\nDuality Dice Rolling: Easily roll any number of Duality Dice (d12s) with a single command or button.\nAutomatic High/Low Calculation: The module automatically identifies and displays the highest and lowest results of the rolled dice.\nAdvantage/Disadvantage Support: Seamlessly handle advantage and disadvantage by rolling two sets of Duality Dice and automatically comparing the appropriate results (highest of both for advantage, lowest of both for disadvantage).",
+  "url": "https://github.com/BilliiBow/daggerheart"
 }
